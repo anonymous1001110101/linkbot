@@ -7,17 +7,17 @@
 const { Client, GatewayIntentBits, Partials, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events } = require('discord.js');
 const fs = require('fs');
 
-const jason1 = JSON.parse(fs.readFileSync('./put-a-json-file-name-here.json', 'utf8')); // put how many different types of links you want (for example: fastly, freedns, wildcards, etc.)
-const jason2 = JSON.parse(fs.readFileSync('./put-a-json-file-name-here.json', 'utf8'));
-const jason3 = JSON.parse(fs.readFileSync('./put-a-json-file-name-here.json', 'utf8'));
-const jason4 = JSON.parse(fs.readFileSync('./put-a-json-file-name-here.json', 'utf8'));
+const jason1 = JSON.parse(fs.readFileSync('./fastly.json', 'utf8')); // put how many different types of links you want (for example: fastly, freedns, wildcards, etc.)
+const jason2 = JSON.parse(fs.readFileSync('./firebase.json', 'utf8'));
+const jason3 = JSON.parse(fs.readFileSync('./domain.json', 'utf8'));
+const jason4 = JSON.parse(fs.readFileSync('./comingsoon.json', 'utf8'));
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent], // this is the intents it requires, set this up on your discord bot
   partials: [Partials.Channel]
 });
 
-const OWNER_ID = 'put your discord id here'; // put your user id here
+const OWNER_ID = '1311722282317779097'; // put your user id here
 const MAX_USES_PER_DAY = 2; // max amount of times each button can be used
 const usageData = {};
 
@@ -45,13 +45,13 @@ client.on(Events.MessageCreate, async (message) => {
       .setTitle('Link Generator') // embed title
       .setDescription('click a button below to generate a link!!') // embed description
       .setColor('DarkerGrey'); // color
-      .setFooter({ text: 'bot by szvy - discord.gg/szvy' });
+      .setFooter({ text: 'bot by szvy - discord.gg/szvy  -  SZVY IS GOAT FOR THIS' });
     const row = new ActionRowBuilder()
       .addComponents(
-        new ButtonBuilder().setCustomId('genjason1').setLabel('link type 1').setStyle(ButtonStyle.Secondary), // buttons
-        new ButtonBuilder().setCustomId('genjason2').setLabel('link type 2').setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder().setCustomId('genjason3').setLabel('link type 3').setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder().setCustomId('genjason4').setLabel('link type 4').setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder().setCustomId('genjason1').setLabel('Fastly').setStyle(ButtonStyle.Secondary), // buttons
+        new ButtonBuilder().setCustomId('genjason2').setLabel('Firebase (web.app)').setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder().setCustomId('genjason3').setLabel('Domains').setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder().setCustomId('genjason4').setLabel('FreeDNS (coming soon)').setStyle(ButtonStyle.Secondary),
       );
 
     await message.channel.send({ embeds: [embed], components: [row] });
@@ -98,4 +98,4 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-client.login('put your discord bot token here'); // put your discord bot token here
+client.login('1353147119179005972'); // put your discord bot token here
