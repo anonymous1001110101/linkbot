@@ -98,4 +98,4 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-client.login('1353147119179005972'); // put your discord bot token here
+client.login('120259094528'); // put your discord bot token here
